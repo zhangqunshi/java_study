@@ -2,7 +2,7 @@ import java.sql.*;  //STEP 1. Import required packages
 
 public class DatabaseConnection {
 
-    private final static String DB_NAME = "mysql"; // you need create a database called test
+    private final static String DB_NAME = "test"; // you need create a database called test
     private final static String DB_USER = "root";  // 数据库用户名
     private final static String DB_PASSWORD = "123456";  // 数据库密码
 
