@@ -29,6 +29,8 @@ public class InsertData {
 
             stmt.executeUpdate(sql);  // 通过Statement对象执行插入数据的SQL语句
 
+            stmt.close();
+
         } finally {
             if (conn != null)
                 conn.close();
