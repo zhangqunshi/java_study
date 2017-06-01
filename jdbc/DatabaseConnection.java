@@ -1,10 +1,10 @@
-import java.sql.*;
+import java.sql.*;  //STEP 1. Import required packages
 
 public class DatabaseConnection {
 
-    final static String DB_NAME = "test"; // you need create a database called test
-    final static String DB_USER = "root";
-    final static String DB_PASSWORD = "123456";
+    private final static String DB_NAME = "mysql"; // you need create a database called test
+    private final static String DB_USER = "root";  // 数据库用户名
+    private final static String DB_PASSWORD = "123456";  // 数据库密码
 
     /**
      * Get database connection
@@ -19,7 +19,10 @@ public class DatabaseConnection {
         Connection conn = null;
 
         try {
+            // STEP 2: Register JDBC driver 注册JDBC驱动程序
             Class.forName("com.mysql.jdbc.Driver");
+
+            // STEP 3: Open a connection 打开一个连接
             conn = DriverManager.getConnection("jdbc:mysql://localhost/" + DB_NAME, DB_USER, DB_PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
