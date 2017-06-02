@@ -10,12 +10,13 @@ public class Transaction {
         try {
             conn = new DatabaseConnection().getConnection();
 
-            conn.setAutoCommit(false);  // 关闭自动提交
+            conn.setAutoCommit(false);
 
             Statement stmt = conn.createStatement();
 
             stmt.executeUpdate("insert into test(id, name) values(4, 'zhang')");
 
+            // 设置存储点
             Savepoint sp1 = conn.setSavepoint("sp1");
 
             stmt.executeUpdate("insert into test(id, name) values(5, 'kris')");
@@ -27,7 +28,7 @@ public class Transaction {
                 if (count <= 0) {
 
                     // if cannot find kris, then rollback insert sql of kris
-                    conn.rollback(sp1);
+                    conn.rollback(sp1);  // 回滚到存储点sp1
                 }
             }
 
