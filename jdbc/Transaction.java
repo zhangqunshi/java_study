@@ -29,6 +29,8 @@ public class Transaction {
 
                     // if cannot find kris, then rollback insert sql of kris
                     conn.rollback(sp1);  // 回滚到存储点sp1
+
+                    // conn.releaseSavepoint(sp1);  // 删除存储点sp1
                 }
             }
 
