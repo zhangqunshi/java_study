@@ -8,6 +8,9 @@ public class SavePoint {
 
         Connection conn = null;
         try {
+
+            conn = new DatabaseConnection().getConnection();
+
             conn.setAutoCommit(false);
 
             Statement stmt = conn.createStatement();
