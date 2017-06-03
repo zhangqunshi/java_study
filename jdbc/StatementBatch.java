@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
@@ -14,6 +15,9 @@ public class StatementBatch {
         Connection conn = null;
         try {
             conn = new DatabaseConnection().getConnection();
+
+            DatabaseMetaData meta = conn.getMetaData();
+            System.out.println("Support batch: " + meta.supportsBatchUpdates());
 
             Statement stmt = conn.createStatement();
 
