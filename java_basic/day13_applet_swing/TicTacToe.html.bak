@@ -1,0 +1,5 @@
+<head><title>TicTacToe Example Applet</title></head>
+<body>
+<applet code=com/nastation/c13TicTacToe.class archive=TicTacToe.jar width=200 height=100>
+</applet>
+</body>
