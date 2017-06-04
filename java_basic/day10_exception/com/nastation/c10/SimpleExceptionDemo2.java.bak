@@ -1,0 +1,16 @@
+package com.nastation.c10;
+
+class SimpleException extends Exception {
+}
+
+public class SimpleExceptionDemo2 {
+
+	public static void main(String[] args) {
+		try {
+			int a = 9;
+		} catch (SimpleException e) {
+			System.err.println("Caught it!");
+		} catch (Exception e) {
+		}
+	}
+}

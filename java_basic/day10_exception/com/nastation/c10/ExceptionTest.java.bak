@@ -1,0 +1,36 @@
+package com.nastation.c10;
+
+class MyEx extends Exception {
+}
+
+class MyEx2 extends MyEx {
+}
+//class MyEx3 extends Exception {
+//}
+
+class Kris {
+//	void m() throws MyEx {
+	void m() throws MyEx2 {
+		throw new MyEx();
+		//throw new MyEx2();
+	}
+	
+//	void m() throws MyEx3 {
+//		
+//	}
+}
+
+public class ExceptionTest {
+	public static void main(String[] args) {
+		Kris k = new Kris();
+		try {
+			k.m();
+		} catch (MyEx2 me) {
+			System.err.println("MyEx2");
+		} catch (MyEx me2) {
+			System.err.println("MyEx");
+		} catch (Exception e) {
+			System.out.println("Exception");
+		}
+	}
+}

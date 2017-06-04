@@ -4,13 +4,13 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * ¶ÔÓÚÒ»¶Ô²»ÏàÍ¬µÄÕûÊı£¬Èç¹ûÆäÖĞÒ»¸öÕûÊıµÄÕıÔ¼Êı£¨proper
- * divisors£©Ö®ºÍµÈÓÚµÚ¶ş¸öÕûÊı£¬ÇÒ·´Ö®ÒàÈ»£¬ÄÇÃ´Õâ¶ÔÕûÊı±ã¿É³ÆÖ®ÎªÒ»¶Ô¡°ÏàÇ×Êı¡±£¨amicable numbers£©¡£ <br>
- * Ê¾Àı£º220, 284 <br>
+ * å¯¹äºä¸€å¯¹ä¸ç›¸åŒçš„æ•´æ•°ï¼Œå¦‚æœå…¶ä¸­ä¸€ä¸ªæ•´æ•°çš„æ­£çº¦æ•°ï¼ˆproper
+ * divisorsï¼‰ä¹‹å’Œç­‰äºç¬¬äºŒä¸ªæ•´æ•°ï¼Œä¸”åä¹‹äº¦ç„¶ï¼Œé‚£ä¹ˆè¿™å¯¹æ•´æ•°ä¾¿å¯ç§°ä¹‹ä¸ºä¸€å¯¹â€œç›¸äº²æ•°â€ï¼ˆamicable numbersï¼‰ã€‚ <br>
+ * ç¤ºä¾‹ï¼š220, 284 <br>
  * 220=2^2*5*11 (1+2+4+5+10+11+20+22+44+55+110 = 284) <br>
  * 284=2^2*71 (1+2+4+71+142 = 220) <br>
- * Çë¿¼ÂÇÒ»¸ö×ÔÈ»ÊıµÄ¸÷Ô¼ÊıÖ®ºÍÓë¸ÃÊı±¾ÉíµÄ±ÈÂÊ£¬¼´ R(n)¡£ Èç¹ûÁ½¸ö²»ÏàÍ¬µÄ×ÔÈ»ÊıµÄ±ÈÂÊÏàµÈ£¬ÄÇÃ´ÕâÑùµÄÊı³ÆÎªÒ»¶Ô¡°Ç×ºÍÊı¡±£¨friendly
- * numbers£©¡£
+ * è¯·è€ƒè™‘ä¸€ä¸ªè‡ªç„¶æ•°çš„å„çº¦æ•°ä¹‹å’Œä¸è¯¥æ•°æœ¬èº«çš„æ¯”ç‡ï¼Œå³ R(n)ã€‚ å¦‚æœä¸¤ä¸ªä¸ç›¸åŒçš„è‡ªç„¶æ•°çš„æ¯”ç‡ç›¸ç­‰ï¼Œé‚£ä¹ˆè¿™æ ·çš„æ•°ç§°ä¸ºä¸€å¯¹â€œäº²å’Œæ•°â€ï¼ˆfriendly
+ * numbersï¼‰ã€‚
  * 
  * @author kris
  * 
@@ -21,13 +21,13 @@ public class CopyOfAmicableNumbers {
 	static int endNum;
 
 	/**
-	 * ÏàÇ×Êı
+	 * ç›¸äº²æ•°
 	 */
 	static class AmicableNumber extends Thread {
 		public void run() {
 			HashMap<Integer, Integer> numSum = new HashMap<Integer, Integer>();
 
-			// ¼ÆËã³öËùÓĞÊıµÄÕıÔ¼Êı(proper divisors)Ö®ºÍ
+			// è®¡ç®—å‡ºæ‰€æœ‰æ•°çš„æ­£çº¦æ•°(proper divisors)ä¹‹å’Œ
 			for (int i = startNum; i <= endNum; i++) {
 				int sum = 0;
 				for (int k = 1; k <= i / 2; k++) {
@@ -38,7 +38,7 @@ public class CopyOfAmicableNumbers {
 				numSum.put(i, sum);
 			}
 
-			// µÃµ½ËùÓĞÏàÇ×Êı
+			// å¾—åˆ°æ‰€æœ‰ç›¸äº²æ•°
 			ArrayList<Integer> list = new ArrayList<Integer>();
 			Iterator<Integer> it = numSum.keySet().iterator();
 			while (it.hasNext()) {
@@ -50,14 +50,14 @@ public class CopyOfAmicableNumbers {
 						&& (key1.intValue() != value1.intValue())
 						&& !list.contains(key1)) {
 					list.add(value1);
-					System.out.println(key1 + "ºÍ" + value1 + "ÊÇÏàÇ×Êı");
+					System.out.println(key1 + "å’Œ" + value1 + "æ˜¯ç›¸äº²æ•°");
 				}
 			}
 		}
 	}
 
 	/**
-	 * Ç×ºÍÊı
+	 * äº²å’Œæ•°
 	 */
 	static class FriendlyNumber extends Thread {
 		public void run() {
@@ -97,7 +97,7 @@ public class CopyOfAmicableNumbers {
 				}
 				for (int j = 0; j < b.length; j++) {
 					if (a[j] == a[i] && b[j] == b[i] && i != j) {
-						System.out.println(x[j] + " ºÍ " + x[i] + " ÊÇÇ×ºÍÊı");
+						System.out.println(x[j] + " å’Œ " + x[i] + " æ˜¯äº²å’Œæ•°");
 					}
 				}
 			}
@@ -106,7 +106,7 @@ public class CopyOfAmicableNumbers {
 	}
 
 	/**
-	 * Í¨¹ıÏà³Ë¼ÆËãÇ×ºÍÊı
+	 * é€šè¿‡ç›¸ä¹˜è®¡ç®—äº²å’Œæ•°
 	 * 
 	 * @author kris
 	 * 
@@ -133,7 +133,7 @@ public class CopyOfAmicableNumbers {
 			for (int i = 0; i < a.length; i++) {
 				for (int j = 0; j < a.length; j++) {
 					if ((a[i] * b[j]) == (a[j] * b[i]) && i != j)
-						System.out.println(a[i] + " ºÍ " + a[j] + " ÊÇÇ×ºÍÊı");
+						System.out.println(a[i] + " å’Œ " + a[j] + " æ˜¯äº²å’Œæ•°");
 				}
 			}
 		}

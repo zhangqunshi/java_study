@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * IntelµÄ¶àÏß³Ì±ÈÈü-ÏàÇ×ÊıµÄ¼ÆËã
+ * Intelçš„å¤šçº¿ç¨‹æ¯”èµ›-ç›¸äº²æ•°çš„è®¡ç®—
  * http://softwarecontests-zho.intel.com/threadingchallenge
  * 
  * @author kris
@@ -14,13 +14,13 @@ public class AmicableNumbers {
 	static int endNum;
 
 	/**
-	 * ÏàÇ×ÊıÏß³Ì
+	 * ç›¸äº²æ•°çº¿ç¨‹
 	 */
 	static class AmicableNumber extends Thread {
 		public void run() {
 			HashMap<Integer, Integer> numSum = new HashMap<Integer, Integer>();
 
-			// ¼ÆËã³öËùÓĞÊıµÄÕıÔ¼Êı(proper divisors)Ö®ºÍ
+			// è®¡ç®—å‡ºæ‰€æœ‰æ•°çš„æ­£çº¦æ•°(proper divisors)ä¹‹å’Œ
 			for (int i = startNum; i <= endNum; i++) {
 				int sum = 0;
 				for (int k = 1; k <= i / 2; k++) {
@@ -31,7 +31,7 @@ public class AmicableNumbers {
 				numSum.put(i, sum);
 			}
 
-			// µÃµ½ËùÓĞÏàÇ×Êı
+			// å¾—åˆ°æ‰€æœ‰ç›¸äº²æ•°
 			ArrayList<Integer> list = new ArrayList<Integer>();
 			Iterator<Integer> it = numSum.keySet().iterator();
 			while (it.hasNext()) {
@@ -43,7 +43,7 @@ public class AmicableNumbers {
 						&& (key1.intValue() != value1.intValue())
 						&& !list.contains(key1)) {
 					list.add(value1);
-					System.out.println(key1 + "ºÍ" + value1 + "ÊÇÏàÇ×Êı");
+					System.out.println(key1 + "å’Œ" + value1 + "æ˜¯ç›¸äº²æ•°");
 				}
 			}
 			
@@ -52,7 +52,7 @@ public class AmicableNumbers {
 	}
 
 	/**
-	 * Ç×ºÍÊıÏß³Ì
+	 * äº²å’Œæ•°çº¿ç¨‹
 	 */
 	static class FriendlyNumber extends Thread {
 		public void run() {
@@ -60,9 +60,9 @@ public class AmicableNumbers {
 
 			int[] num = new int[len];
 			int[] sums = new int[len];
-			int[] oldNum = new int[len]; // ±£´æ×î¿ªÊ¼µÄÊı
+			int[] oldNum = new int[len]; // ä¿å­˜æœ€å¼€å§‹çš„æ•°
 
-			// ¼ÆËã¹«Ô¼ÊıÖ®ºÍ
+			// è®¡ç®—å…¬çº¦æ•°ä¹‹å’Œ
 			for (int i = startNum, j = 0; i <= endNum; i++) {
 				int sum = 0;
 				for (int k = 1; k <= i / 2; k++) {
@@ -70,15 +70,15 @@ public class AmicableNumbers {
 						sum += k;
 					}
 				}
-				num[j] = i; // °Ñ±»¼ÆËãµÄÊı±£´æÔÚaÊı×éÖĞ
+				num[j] = i; // æŠŠè¢«è®¡ç®—çš„æ•°ä¿å­˜åœ¨aæ•°ç»„ä¸­
 				oldNum[j] = i;
-				sums[j] = sum + i; // °Ñ¹«Ô¼ÊıµÄºÍ±£´æÔÚbÊı¾İÖĞ
+				sums[j] = sum + i; // æŠŠå…¬çº¦æ•°çš„å’Œä¿å­˜åœ¨bæ•°æ®ä¸­
 				j++;
 			}
 
 			for (int i = 0; i < num.length; i++) {
 
-				// ¼ÆËãÔ¼·Ö½á¹û
+				// è®¡ç®—çº¦åˆ†ç»“æœ
 				for (int k = 2; k <= num[i];) {
 					if (num[i] == 1 || sums[i] == 1) {
 						break;
@@ -93,8 +93,8 @@ public class AmicableNumbers {
 
 				for (int j = 0; j < sums.length; j++) {
 					if (num[j] == num[i] && sums[j] == sums[i] && i != j) {
-						System.out.println(oldNum[j] + " ºÍ " + oldNum[i]
-								+ " ÊÇÇ×ºÍÊı");
+						System.out.println(oldNum[j] + " å’Œ " + oldNum[i]
+								+ " æ˜¯äº²å’Œæ•°");
 					}
 				}
 			}
@@ -105,7 +105,7 @@ public class AmicableNumbers {
 	}
 
 	/**
-	 * Ö÷º¯Êı
+	 * ä¸»å‡½æ•°
 	 * @param args
 	 */
 	public static void main(String[] args) {
