@@ -11,7 +11,6 @@ public class HelloDate {
     /**
      * 方法的说明写在这里
      * @param args 参数的说明
-     * @param args2 参数的说明2
      */
     public static void main(String[] args) {
     	
