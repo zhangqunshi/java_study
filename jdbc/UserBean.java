@@ -1,7 +1,7 @@
 import java.util.Date;
 
 /**
- * JavaBean for user info.
+ * SimpleBean for user info.
  *
  * @author zhangqunshi@126.com
  * @version 2017-6-3
