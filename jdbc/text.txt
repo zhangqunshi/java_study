@@ -1,0 +1,6 @@
+TEXT值是大小写不敏感的
+Text被视为非二进制字符串
+TEXT列有一个字符集，并且根据字符集的 校对规则对值进行排序和比较
+可以将TEXT列视为VARCHAR列
+MySQL连接程序/ODBC将TEXT值定义为LONGVARCHAR
+BLOB 可以储存图片,TEXT不行，TEXT只能储存纯文本文件。4个TEXT类型TINYTEXT、TEXT、MEDIUMTEXT和LONGTEXT对应于4个BLOB类型，并且有同样的最大长度和存储需求。
