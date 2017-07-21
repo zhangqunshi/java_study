@@ -45,7 +45,9 @@ public class ToyTest {
         }
 
         Class cy = c.getSuperclass();
+        // Class<Toy> cy = c.getSuperclass();
         Object o = null;
+        // Toy o = null;
         try {
             // Requires default constructor:
             o = cy.newInstance(); // (*1*)
