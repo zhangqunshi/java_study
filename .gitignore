@@ -25,3 +25,7 @@ out
 .vscode
 *.iml
 .vs
+.settings
+/jsp/build
+/jsp/.classpath
+/jsp/.project
