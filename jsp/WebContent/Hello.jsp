@@ -12,7 +12,7 @@
 <%-- The next several lines are the result of a
 JSP expression inserted in the generated html;
 the '=' indicates a JSP expression --%>
-
+<!-- html content -->
 <H1>This page was loaded at <%=loadDate%></H1>
 <H1>Hello, world! It's <%=new Date()%></H1>
 <H2>Here's an object: <%=new Object()%></H2>
